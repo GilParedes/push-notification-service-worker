@@ -38,6 +38,8 @@ export default {
                     .then(result => {
                         // si se otorga crea una nueva suscripción
                         if (result === 'granted') {
+                        console.log('permiso otorgado');
+
                             this.createSubscription()
                             .then(sub => {
                                 console.log('subscription created on the client', sub);
@@ -134,8 +136,8 @@ export default {
             })
         },
         createPushNotification() {
-            // get the textarea content and send it to the server.
-            // The server will create a notifications that will be pushed
+            // obtener un service worker activo y regístrado
+            // El servidor creará una notificacón que será empujada
             return axios.post(`${process.env.VUE_APP_API_PATH}/notify`, {
                 username: localStorage.getItem('username'),
                 message: this.message,
@@ -182,3 +184,27 @@ export default {
     },
 }
 </script>
+
+<style scoped lang="less">
+    button {
+        width: 240px;
+        background: #1da025;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 18px;
+        margin-top: 20px;
+        &:focus {
+            outline: none;
+        }
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+    textarea {
+        width: 240px;
+        padding: 10px;
+        border:1px solid #ccc;
+        box-sizing: border-box;
+    }
+</style>

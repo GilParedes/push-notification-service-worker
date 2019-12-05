@@ -14,6 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+// retorna la vista de home
+// Route::get('/home', function() {
+//     return view('home');
+// });
 
 // crea o actualiza una suscripción para un usuario
 Route::get('/suscripcion', 'SubscriptionController@store');

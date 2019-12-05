@@ -21,11 +21,7 @@
     @endif
 
     {{-- CSS --}}
-    <link rel="stylesheet" href="{{ asset('distinct/css/app.css') }}">
-
-    {{-- JSON SCHEMA --}}
-    {!! $page->site->schema !!}
-
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <link rel="canonical" href="{{ url($page->perman_link) }}" />
 
@@ -57,35 +53,16 @@
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('/favicon/apple-icon-57x57.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/favicon/favicon-16x16.png')}}">
 
-    {{-- <!-- Google Tag Manager --> --}}
-
-    {{--
-
-    Descomentar y añadir ID de Google Analytics
-
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','<ID de Google Analytics>');</script>
-    --}}
-
-    {{-- <!-- End Google Tag Manager --> --}}
 </head>
 <body class="body m6">
 
-{{-- <!-- Google Tag Manager (noscript) --> --}}
-<noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZHJHVC"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-{{-- <!-- End Google Tag Manager (noscript) --> --}}
-
-{{-- Descomentar cuando las navegaciones estén creadas  --}}
-{{-- @includeWhen($page, 'partials.nav') --}}
-@includeWhen($page, 'templates.'.$page->template)
-{{-- Decomentar cuando el footer estén creado  --}}
-{{-- @includeWhen($page, 'partials.footer') --}}
+<div id="app">
+    {{-- Descomentar cuando las navegaciones estén creadas  --}}
+    {{-- @includeWhen($page, 'partials.nav') --}}
+    @includeWhen($page, 'templates.'.$page->template)
+    {{-- Decomentar cuando el footer estén creado  --}}
+    {{-- @includeWhen($page, 'partials.footer') --}}
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js" type="text/javascript" async></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript" async></script>
