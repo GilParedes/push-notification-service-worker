@@ -1,31 +1,46 @@
-self.addEventListener('install', function(event){
-    // aquí añadiremos cosas
-    console.log('Installed', event);
-
+self.addEventListener('push', function(event) {
+  if (event.data) {
+    var data = event.data.json();
+    self.registration.showNotification(data.title,{
+      body: data.body,
+      icon: data.icon
+    });
+    console.log('This push event has data: ', event.data.text());
+  } else {
+    console.log('This push event has no data.');
+  }
 });
 
-self.addEventListener('push', event => {
-    event.waitUntil(
-      self.registration.showNotification('Hola Mundo Push')
-    );
-  });
 
 
-self.addEventListener('activate', function(event) {
+// self.addEventListener('install', function(event){
+//     // aquí añadiremos cosas
+//     console.log('Installed', event);
 
-    console.log('Activated', event);
+// });
 
-    // aquí no vamos a añadir nada
+// self.addEventListener('push', event => {
+//     event.waitUntil(
+//       self.registration.showNotification('Hola Mundo Push')
+//     );
+//   });
 
-});
 
-self.addEventListener('fetch', function(event) {
+// self.addEventListener('activate', function(event) {
 
-    console.log('fetch', event);
+//     console.log('Activated', event);
 
-    // aquí añadiremos cosas
+//     // aquí no vamos a añadir nada
 
-});
+// });
+
+// self.addEventListener('fetch', function(event) {
+
+//     console.log('fetch', event);
+
+//     // aquí añadiremos cosas
+
+// });
 
 
 
